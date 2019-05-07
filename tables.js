@@ -1,0 +1,4 @@
+
+
+let reservations = [];
+let waitList = [];
