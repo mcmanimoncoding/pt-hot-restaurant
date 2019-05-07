@@ -11,8 +11,6 @@ app.use(express.urlencoded({
 }));
 app.use(express.json());
 
-let reservations = [];
-let waitList = [];
 
 
 app.get("/", function (req, res) {
@@ -50,8 +48,10 @@ app.post("/api/reservations", function(req, res) {
   
     if (reservations.length >= 5){
         reservations.push(newReservation);
+        return("You've reserved a Table!")
+    }else{waitList.push(newReservation);
+    return("You're on the Wait List!")};
 
-    }else{waitList.push(newReservation)};
   
     res.json(newReservation);
   });
